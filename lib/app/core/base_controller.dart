@@ -1,0 +1,17 @@
+import 'package:get/get.dart';
+import 'package:n_flutter/app/api/api_provider.dart';
+import '../../tools/shared_pref.dart';
+import '../services/auth_service.dart';
+
+abstract class BaseController extends SuperController {
+  final offlineData = Get.put(OfflineData());
+  final authService = Get.find<AuthService>();
+  final api = Get.put(ApiProvider());
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    print("onInit() :  + ${Get.currentRoute}");
+    super.onInit();
+  }
+}
