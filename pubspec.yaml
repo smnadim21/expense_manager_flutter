@@ -1,4 +1,4 @@
-name: n_flutter
+name: money_manager
 description: Flutter Quick Start
 
 # The following line prevents the package from being accidentally published to
@@ -32,11 +32,15 @@ dependencies:
   get: ^4.6.1
   gradient_widgets: ^0.6.0
   shared_preferences: ^2.0.13
-  google_fonts: ^2.3.2
+  google_fonts: ^4.0.4
   flutter_spinkit: ^5.1.0
   collection: ^1.15.0
   dio: ^4.0.6
   dropdown_search: ^3.0.1
+  font_awesome_flutter: ^10.1.0
+  floor: ^1.2.0
+  date_time_picker: ^2.1.0
+  intl: ^0.17.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -49,20 +53,14 @@ dev_dependencies:
   flutter_launcher_icons: ^0.9.2
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  floor_generator: ^1.2.0
+  floor_annotation: ^1.0.0
+  # flutter packages pub run build_runner watch
   flutter_lints: ^2.0.0
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
 
 
 flutter_app_name:
-  name: "ABC Drivers+"
+  name: "Money Manager"
 
 flutter_icons:
   android: true
@@ -79,6 +77,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/fonts/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

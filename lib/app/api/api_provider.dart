@@ -1,4 +1,4 @@
-import 'package:n_flutter/global_import.dart';
+import 'package:money_manager/global_import.dart';
 import 'package:dio/dio.dart' as dio;
 import 'api_response.dart';
 
@@ -92,7 +92,7 @@ class ApiProvider extends GetConnect {
         }
         //------------------ IF not 404 -----------------------------
         else {
-          stringResponse.errorMessage = response.statusCode.toString() + " " + response.statusText!;
+          stringResponse.errorMessage = "${response.statusCode} ${response.statusText!}";
 
           //------------------ UNAUTHORIZED ----------------------
           if (response.statusCode == 401) {

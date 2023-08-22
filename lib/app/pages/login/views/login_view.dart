@@ -1,4 +1,4 @@
-import 'package:n_flutter/global_import.dart';
+import 'package:money_manager/global_import.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {

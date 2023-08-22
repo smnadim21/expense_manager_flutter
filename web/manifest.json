@@ -1,6 +1,6 @@
 {
-    "name": "n_flutter",
-    "short_name": "n_flutter",
+    "name": "money_manager",
+    "short_name": "money_manager",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

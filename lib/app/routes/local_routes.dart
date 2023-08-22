@@ -1,12 +1,13 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:n_flutter/app/pages/debug_screen/bindings/_binding.dart';
-import 'package:n_flutter/app/pages/debug_screen/views/debug_view.dart';
-import 'package:n_flutter/app/pages/demo/bindings/_binding.dart';
-import 'package:n_flutter/app/pages/demo/views/_view.dart';
-import 'package:n_flutter/app/pages/home/bindings/_binding.dart';
-import 'package:n_flutter/app/pages/home/views/_view.dart';
-import 'package:n_flutter/app/pages/login/bindings/login_binding.dart';
-import 'package:n_flutter/app/pages/login/views/login_view.dart';
+import 'package:money_manager/app/pages/debug_screen/bindings/_binding.dart';
+import 'package:money_manager/app/pages/debug_screen/views/debug_view.dart';
+import 'package:money_manager/app/pages/demo/bindings/_binding.dart';
+import 'package:money_manager/app/pages/demo/views/_view.dart';
+import 'package:money_manager/app/pages/home/bindings/_binding.dart';
+import 'package:money_manager/app/pages/home/views/_view.dart';
+import 'package:money_manager/app/pages/login/bindings/login_binding.dart';
+import 'package:money_manager/app/pages/login/views/login_view.dart';
+import 'package:money_manager/app/ui/fragments.dart';
 
 import '';
 import '../middlewares/auth_guard.dart';
@@ -15,6 +16,7 @@ abstract class Routes {
   static const login = '/login';
   static const home = '/home';
   static const debug_screen = '/debug_screen';
+  static const accounts = "/accounts";
 }
 
 class AppPages {
@@ -26,9 +28,6 @@ class AppPages {
       // ignore: prefer_const_constructors
       page: () => HomeView(),
       binding: HomeBinding(),
-      middlewares: [
-        AuthGuard(), //Need to be logged in to get to this page
-      ],
     ),
     GetPage(
       name: Routes.login,
@@ -41,6 +40,11 @@ class AppPages {
       // ignore: prefer_const_constructors
       page: () => DebugView(),
       binding: DebugBinding(),
+    ),
+    GetPage(
+      name: Routes.accounts,
+      page: () => AccountsView(),
+      binding: HomeBinding(),
     )
   ];
 }

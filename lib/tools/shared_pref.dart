@@ -8,6 +8,7 @@ class OfflineData {
   final token = "token";
   SharedPreferences sharedPreferences = Get.find<SharedPreferences>();
 
+
   static Future<SharedPreferences> getInstance() async {
     return await SharedPreferences.getInstance();
   }

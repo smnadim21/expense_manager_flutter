@@ -1,4 +1,4 @@
-# n_flutter
+# money_manager
 
 Flutter Quick Start
 

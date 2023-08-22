@@ -1,3 +1,6 @@
+import 'package:money_manager/app/ui/fragments.dart';
+import 'package:money_manager/app/ui/list_items.dart';
+
 import '../../global_import.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -6,7 +9,12 @@ class MenuWidget extends StatelessWidget {
     {"title": "Login/Register", "icon": Icons.login, "route": Routes.home},
     {"title": "Search", "icon": Icons.search, "route": Routes.home},
     {},
-    {"title": "Log Out", "icon": Icons.one_k, "route": Routes.login, "no_history": true},
+    {
+      "title": "Log Out",
+      "icon": Icons.one_k,
+      "route": Routes.login,
+      "no_history": true
+    },
   ];
 
   final headerMenu = Container(
@@ -26,17 +34,23 @@ class MenuWidget extends StatelessWidget {
           Text(
             'Demo +',
             textAlign: TextAlign.start,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: TEXT_DEFAULT),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 18, color: TEXT_DEFAULT),
           ),
           Text(
             "userId : N/A",
             textAlign: TextAlign.start,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.black45),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+                color: Colors.black45),
           )
         ],
       ),
     ),
   );
+
+  MenuWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +86,69 @@ class MenuWidget extends StatelessWidget {
   List<Widget> getMenus() {
     var menuList = <Widget>[];
     menuList.add(headerMenu);
+    menuList.addAll(menus.map((data) => buildListTile(data)).toList());
+    return menuList;
+  }
+}
+
+class EndMenuWidget extends StatelessWidget {
+  final menus = [
+    {"title": "Categories", "icon": Icons.category, "route": Routes.home},
+    {
+      "title": "Accounts",
+      "icon": Icons.wallet,
+      "route": Routes.home,
+      "view": const AccountsView()
+    },
+    {
+      "title": "Settings",
+      "icon": Icons.settings,
+      "route": Routes.home,
+      "no_history": true
+    },
+  ];
+
+  EndMenuWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: Drawer(
+      width: 200,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: getMenus(),
+      ),
+    ));
+  }
+
+  Widget buildListTile(Map data) {
+    return data.isEmpty
+        ? const Divider(
+            height: 1,
+            thickness: 1,
+          )
+        : EndMenuListTile(
+            data: data,
+            onTap: () {
+              Navigator.pop(Get.context!);
+              if (data['no_history'] ?? false) {
+                Get.offAllNamed(data['route']);
+              } else {
+                if (data['view'] != null) {
+                  Get.dialog(data['view'],
+                      name: Routes.accounts,
+                      arguments: data,
+                      useSafeArea: false);
+                }
+                //Get.toNamed(data['route']);
+              }
+            },
+          );
+  }
+
+  List<Widget> getMenus() {
+    var menuList = <Widget>[];
     menuList.addAll(menus.map((data) => buildListTile(data)).toList());
     return menuList;
   }

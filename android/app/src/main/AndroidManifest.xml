@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.n_flutter">
+    package="com.example.money_manager">
    <application
-        android:label="n_flutter"
+        android:label="money_manager"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
